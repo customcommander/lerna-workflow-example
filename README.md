@@ -112,11 +112,13 @@ _Note: the following Lerna commands would typically run on your CI/CD pipeline._
 | Start of 1<sup>st</sup> cycle <sup>1</sup>                 | integration    | lerna publish --yes prerelease                                | 1.0.0-alpha.1 | 1.0.0-alpha.1 | 1.0.0-alpha.1 | 1.0.0-alpha.1  |
 | Made changes to `lib_a` <sup>2</sup>                       | integration    | lerna publish --yes prerelease                                | 1.0.0-alpha.2 | 1.0.0-alpha.1 | 1.0.0-alpha.1 | 1.0.0-alpha.2  |
 | First beta release <sup>3</sup>                            | release/v1.0.0 | lerna publish --yes --force-publish=* --preid=beta prerelease | 1.0.0-beta.0  | 1.0.0-beta.0  | 1.0.0-beta.0  | 1.0.0-beta.0   |
-| First production release <sup>4</sup>                      | master         | lerna publish --yes --force-publish=* major                   | 1.0.0         | 1.0.0         | 1.0.0         | 1.0.0          |
+| First production release <sup>4</sup>                      | master         | lerna publish --yes --force-publish=* minor                   | 1.0.0         | 1.0.0         | 1.0.0         | 1.0.0          |
 | Start of 2<sup>nd</sup> (and any other) cycle <sup>5</sup> | integration    | lerna publish --yes --force-publish=* --preid=alpha preminor  | 1.1.0-alpha.0 | 1.1.0-alpha.0 | 1.1.0-alpha.0 | 1.1.0-alpha.0  |
 | Made changes to `lib_a` and `lib_b` <sup>6</sup>           | integration    | lerna publish --yes prerelease                                | 1.1.0-alpha.1 | 1.1.0-alpha.1 | 1.1.0-alpha.0 | 1.1.0-alpha.1  |
 | Applied hot fix on 1.0.0 release <sup>7</sup>              | release/v1.0.0 | lerna publish --yes --force-publish=* --preid=beta prepatch   | 1.0.1-beta.0  | 1.0.1-beta.0  | 1.0.1-beta.0  | 1.0.1-beta.0   |
 | Released hot fix <sup>8</sup>                              | master         | lerna publish --yes --force-publish=* patch                   | 1.0.1         | 1.0.1         | 1.0.1         | 1.0.1          |
+| Second beta release                                        | release/v1.1.0 | lerna publish --yes --force-publish=* --preid=beta prerelease | 1.1.0-beta.0  | 1.1.0-beta.0  | 1.1.0-beta.0  | 1.1.0-beta.0   |
+| Second production release                                  | master         | lerna publish --yes --force-publish=* minor                   | 1.1.0         | 1.1.0         | 1.1.0         | 1.1.0          |
 
 Notes:
 

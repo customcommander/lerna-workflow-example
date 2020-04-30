@@ -58,7 +58,7 @@ ready to make our first beta release: 1.0.0-beta.0
 publishing...
 "
 
-npx lerna publish --yes --force-publish=* --preid=beta  prerelease 2>/dev/null
+npx lerna publish --yes --force-publish=* --preid=beta prerelease 2>/dev/null
 package_info
 
 # -----------------------------------------------------------------------------
@@ -73,7 +73,7 @@ we're ready to make our first production release: 1.0.0
 publishing...
 "
 
-npx lerna publish --yes --force-publish=* major 2>/dev/null
+npx lerna publish --yes --force-publish=* minor 2>/dev/null
 package_info
 
 # -----------------------------------------------------------------------------
@@ -132,4 +132,33 @@ publishing...
 "
 
 npx lerna publish --yes --force-publish=* patch 2>/dev/null
+package_info
+
+# -----------------------------------------------------------------------------
+
+git checkout -b release/v1.1.0 integration
+git push origin release/v1.1.0
+
+echo "
+$(current_branch)
+ready to make our second beta release: 1.1.0-beta.0
+publishing...
+"
+
+npx lerna publish --yes --force-publish=* --preid=beta prerelease 2>/dev/null
+package_info
+
+# -----------------------------------------------------------------------------
+
+git checkout master
+git merge release/v1.1.0 --strategy-option=theirs --no-edit
+git push origin master
+
+echo "
+$(current_branch)
+we're ready to make our second production release: 1.1.0
+publishing...
+"
+
+npx lerna publish --yes --force-publish=* minor 2>/dev/null
 package_info
