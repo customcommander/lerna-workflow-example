@@ -162,3 +162,33 @@ publishing...
 
 npx lerna publish --yes --force-publish=* minor 2>/dev/null
 package_info
+
+# -----------------------------------------------------------------------------
+
+make_change lib_c
+git checkout release/v1.1.0
+git cherry-pick integration --strategy-option=theirs
+
+echo "
+$(current_branch)
+found major issue in 1.1.0 in lib_c
+made the fix on integration and cherry-picked the change on the release/v1.1.0 branch
+publishing...
+"
+
+npx lerna publish --yes --force-publish=* --preid=beta prepatch 2>/dev/null
+package_info
+
+# -----------------------------------------------------------------------------
+
+git checkout master
+git merge release/v1.1.0 --strategy-option=theirs --no-edit
+
+echo "
+$(current_branch)
+merged hotfix in release/v1.1.0 into master
+publishing...
+"
+
+npx lerna publish --yes --force-publish=* patch 2>/dev/null
+package_info

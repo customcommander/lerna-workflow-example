@@ -119,6 +119,8 @@ _Note: the following Lerna commands would typically run on your CI/CD pipeline._
 | Released hot fix <sup>8</sup>                              | master         | lerna publish --yes --force-publish=* patch                   | 1.0.1         | 1.0.1         | 1.0.1         | 1.0.1          |
 | Second beta release                                        | release/v1.1.0 | lerna publish --yes --force-publish=* --preid=beta prerelease | 1.1.0-beta.0  | 1.1.0-beta.0  | 1.1.0-beta.0  | 1.1.0-beta.0   |
 | Second production release                                  | master         | lerna publish --yes --force-publish=* minor                   | 1.1.0         | 1.1.0         | 1.1.0         | 1.1.0          |
+| Applied hot fix on 1.1.0 release                           | release/v1.1.0 | lerna publish --yes --force-publish=* --preid=beta prepatch   | 1.1.1-beta.0  | 1.1.1-beta.0  | 1.1.1-beta.0  | 1.1.1-beta.0   |
+| Released hot fix                                           | master         | lerna publish --yes --force-publish=* patch                   | 1.1.1         | 1.1.1         | 1.1.1         | 1.1.1          |
 
 Notes:
 
